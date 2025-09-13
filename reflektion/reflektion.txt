@@ -7,3 +7,5 @@ När jag tänker på molnet känns det spännande att kunna skala upp och ner p�
 Att vara systemutvecklare i ett team innebär för mig att kommunicera tydligt, hantera arbete i issues och pull requests, skriva kod som är enkel att förstå för andra, komplettera med tester som säkerställer att den fungerar som tänkt, och dokumentera så att det blir lätt att använda och bygga vidare på, samt ta ansvar för leveranser tillsammans. Det handlar också om att underlätta för teamet genom att följa en tydlig branch strategi för att undvika rörighet och använda CI för att snabbt upptäcka fel.
 
 Det mest intressanta under de här tre veckorna har varit att börja använda Visual Studio, samt att arbeta med GitHub Actions och CI/CD.
+
+(VG) Jag har lagt till en GitHub Action i .github/workflows/ci.yml som körs vid varje push och skriver ut ett meddelande i pipeline-loggen.

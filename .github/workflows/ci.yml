@@ -3,9 +3,28 @@ name: CI Check
 on: [push]
 
 jobs:
-  check:
+  build-and-check-ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Visa meddelande
-        run: echo 'Hej! Detta är en automatisk körning via GitHub Actions'
+
+      - name: Visa hälsning i ASCII-art
+        run: |
+          echo "====================================="
+          echo " 🚀 GitHub Actions körs för .NET 🚀 "
+          echo "====================================="
+
+      - name: Dummy check
+        run: echo "Allt fungerar, redo för .NET i framtiden!"
+
+      - name: Skicka resultat till Discord
+        if: always()
+        run: |
+          STATUS="Workflow lyckades!"
+          if [ "${{ job.status }}" != "success" ]; then
+            STATUS="Workflow misslyckades!"
+          fi
+
+          curl -H "Content-Type: application/json" \
+               -d "{\"content\": \"CI Check status: $STATUS\"}" \
+               ${{ secrets.DISCORD_WEBHOOK }}
